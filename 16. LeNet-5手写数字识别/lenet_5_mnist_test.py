@@ -10,7 +10,7 @@ test_num_examples = 10000
 
 def test(mnist):
     with tf.Graph().as_default() as g:
-        x = tf.placeholder(tf.float32, [None, 
+        x = tf.placeholder(tf.float32, [mnist.test.num_examples, 
                                         lenet_5_mnist_forward.IMAGE_SIZE, 
                                         lenet_5_mnist_forward.IMAGE_SIZE, 
                                         lenet_5_mnist_forward.NUM_CHANNELS])
