@@ -37,7 +37,7 @@ def test(mnist):
                                                  lenet_5_mnist_forward.IMAGE_SIZE, 
                                                  lenet_5_mnist_forward.IMAGE_SIZE, 
                                                  lenet_5_mnist_forward.NUM_CHANNELS])
-                    accuracy_value = sess.run(accuracy, feed_dict={x:xs, y:ys})
+                    accuracy_value = sess.run(accuracy, feed_dict={x:reshape_xs, y:ys})
                     
                     print("After training %s steps, the accuracy in test set is %f" % (global_step, accuracy_value))
                 else:
