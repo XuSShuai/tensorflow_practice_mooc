@@ -27,7 +27,7 @@ def test(mnist):
         
         while True:
             with tf.Session() as sess:
-                ckpt = tf.train.get_checkpoint_state(mnist_backward.MODEL_SAVE_PATH)
+                ckpt = tf.train.get_checkpoint_state(lenet_5_mnist_backward.MODEL_SAVE_PATH)
                 if ckpt and ckpt.model_checkpoint_path:
                     saver.restore(sess, ckpt.model_checkpoint_path)
                     global_step = ckpt.model_checkpoint_path.split("/")[-1].split("-")[-1]
