@@ -14,7 +14,7 @@ def test(mnist):
                                         lenet_5_mnist_forward.IMAGE_SIZE, 
                                         lenet_5_mnist_forward.IMAGE_SIZE, 
                                         lenet_5_mnist_forward.NUM_CHANNELS])
-        y = tf.placeholder(tf.float32, [None, mnist_forward.OUTPUT_NODE])
+        y = tf.placeholder(tf.float32, [None, lenet_5_mnist_forward.OUTPUT_NODE])
         
         y_hat = lenet_5_mnist_forward.forward(x, False, None)
         
