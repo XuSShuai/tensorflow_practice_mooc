@@ -21,7 +21,7 @@ def test(mnist):
         correct = tf.equal(tf.argmax(y, 1), tf.argmax(y_hat, 1))
         accuracy = tf.reduce_mean(tf.cast(correct, tf.float32))
         
-        ema = tf.train.ExponentialMovingAverage(mnist_backward.MOVEING_AVERAGE_DECAY)
+        ema = tf.train.ExponentialMovingAverage(lenet_5_mnist_backward.MOVEING_AVERAGE_DECAY)
         ema_restore = ema.variables_to_restore()
         saver = tf.train.Saver(ema_restore)
         
