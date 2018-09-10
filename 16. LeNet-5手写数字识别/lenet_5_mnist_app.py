@@ -44,7 +44,7 @@ def pre_pic(img_path):
 def application():
     n = input("input the number of test image:")
     for i in range(int(n)):
-        img_path = input("the path of the test image(%s)" % i)
+        img_path = input("the path of the test image(%s):" % i)
         img_ready = pre_pic(img_path)
         pred = restore_model(img_ready)
         print("the prediction number is ", pred)
