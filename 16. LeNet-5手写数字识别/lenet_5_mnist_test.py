@@ -32,7 +32,7 @@ def test(mnist):
                     saver.restore(sess, ckpt.model_checkpoint_path)
                     global_step = ckpt.model_checkpoint_path.split("/")[-1].split("-")[-1]
                     
-                    reshape_x = tf.rehape(mnist.test.images, [mnist.test.num_examples, 
+                    reshape_x = tf.reshape(mnist.test.images, [mnist.test.num_examples, 
                                         lenet_5_mnist_forward.IMAGE_SIZE, 
                                         lenet_5_mnist_forward.IMAGE_SIZE, 
                                         lenet_5_mnist_forward.NUM_CHANNELS])
