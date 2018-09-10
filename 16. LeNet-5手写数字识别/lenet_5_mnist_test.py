@@ -32,12 +32,11 @@ def test(mnist):
                     saver.restore(sess, ckpt.model_checkpoint_path)
                     global_step = ckpt.model_checkpoint_path.split("/")[-1].split("-")[-1]
                     
-                    xs, ys = mnist.test.next_batch(lenet_5_mnist_backward.BATCH_SIZE)
-                    reshape_xs = np.reshape(xs, [mnist.test.num_examples, 
-                                                 lenet_5_mnist_forward.IMAGE_SIZE, 
-                                                 lenet_5_mnist_forward.IMAGE_SIZE, 
-                                                 lenet_5_mnist_forward.NUM_CHANNELS])
-                    accuracy_value = sess.run(accuracy, feed_dict={x:reshape_xs, y:ys})
+                    reshape_x = tf.rehape(mnist.test.images, [mnist.test.num_examples, 
+                                        lenet_5_mnist_forward.IMAGE_SIZE, 
+                                        lenet_5_mnist_forward.IMAGE_SIZE, 
+                                        lenet_5_mnist_forward.NUM_CHANNELS])
+                    sess.run(accuracy, feed_dict={x:reshape_x, y:mnist.test.labels})
                     
                     print("After training %s steps, the accuracy in test set is %f" % (global_step, accuracy_value))
                 else:
