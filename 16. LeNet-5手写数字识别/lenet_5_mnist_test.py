@@ -33,7 +33,7 @@ def test(mnist):
                     global_step = ckpt.model_checkpoint_path.split("/")[-1].split("-")[-1]
                     
                     xs, ys = mnist.test.next_batch(lenet_5_mnist_backward.BATCH_SIZE)
-                    reshape_xs = np.reshape(xs, [lenet_5_mnist_backward.BATCH_SIZE, 
+                    reshape_xs = np.reshape(xs, [mnist.test.num_examples, 
                                                  lenet_5_mnist_forward.IMAGE_SIZE, 
                                                  lenet_5_mnist_forward.IMAGE_SIZE, 
                                                  lenet_5_mnist_forward.NUM_CHANNELS])
