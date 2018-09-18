@@ -21,6 +21,15 @@ def backward(mnist):
                                           lenet_5_mnist_forward.NUM_CHANNELS])
     y = tf.placeholder(tf.float32, shape=[BATCH_SIZE, lenet_5_mnist_forward.OUTPUT_NODE])
     
+    # or maybe a better way is below, change the fixed size of BATCH_SIZE to None will more flexible
+    # x = tf.placeholder(tf.float32, shape=[None, 
+    #                                       lenet_5_mnist_forward.IMAGE_SIZE, 
+    #                                      lenet_5_mnist_forward.IMAGE_SIZE, 
+    #                                      lenet_5_mnist_forward.NUM_CHANNELS])
+    # y = tf.placeholder(tf.float32, shape=[None, lenet_5_mnist_forward.OUTPUT_NODE])
+    # 
+    # we also have to go on to the file "lenet_5_mnist_forward.py" and change "p2_shape[0]" to "-1" in line 25
+    
     y_hat = lenet_5_mnist_forward.forward(x, True, REGULARIZER)
     global_step = tf.Variable(0, trainable=False)
     loss_cem = tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(labels=tf.argmax(y, 1), logits=y_hat))
