@@ -1,5 +1,4 @@
 # tensorflow_practice_mooc
-tensorflow practice mooc
 
 ## 1 - 前向传播
 
@@ -89,3 +88,7 @@ def test(mnist):
                 如果没有模型：
                     提示模型没有找到
 ```
+
+## 4 - 实例
+
+[LeNet for mnist.](https://github.com/XuSShuai/tensorflow_practice_mooc/tree/master/16.%20LeNet-5%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB)
